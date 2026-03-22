@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Dialer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://sdk.twilio.com/js/client/releases/2.25.0/twilio.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- Placeholder for company logo - replace src with your logo -->
+            <div class="logo-container">
+                <img src="https://i.ibb.co/1GxM1w29/hedra-image-359efe53-44bc-4c14-ab2f-1460d9531a0e-removebg-preview.png" alt="Company Logo" id="companyLogo">
+            </div>
+            <div class="status" id="status">Ready to call</div>
+        </header>
+
+        <div class="dialer">
+            <div class="number-input">
+                <input type="tel" id="phoneNumber" placeholder="Enter phone number (e.g., +1234567890)" maxlength="15">
+                <button class="clear-btn" id="clearBtn">⌫</button>
+            </div>
+
+            <div class="keypad">
+                <button class="key" data-digit="1">1</button>
+                <button class="key" data-digit="2">2<br>ABC</button>
+                <button class="key" data-digit="3">3<br>DEF</button>
+                <button class="key" data-digit="4">4<br>GHI</button>
+                <button class="key" data-digit="5">5<br>JKL</button>
+                <button class="key" data-digit="6">6<br>MNO</button>
+                <button class="key" data-digit="7">7<br>PQRS</button>
+                <button class="key" data-digit="8">8<br>TUV</button>
+                <button class="key" data-digit="9">9<br>WXYZ</button>
+                <button class="key special" data-digit="*">∗</button>
+                <button class="key" data-digit="0">0</button>
+                <button class="key special" data-digit="#">#</button>
+            </div>
+
+            <div class="actions">
+                <button class="call-btn" id="callBtn">
+                    <span class="call-icon">📞</span>
+                    <span class="call-text">Call</span>
+                </button>
+                <button class="end-btn" id="endBtn" disabled>End Call</button>
+            </div>
+
+            <!-- Ethereum Wallet Button -->
+            <div class="wallet-section">
+                <button class="wallet-btn" id="walletBtn">
+                    <img src="https://cdn-icons-png.flaticon.com/512/10745/10745349.png" alt="Ethereum Wallet" class="wallet-icon">
+                    <span>Ethereum Vaults</span>
+                </button>
+            </div>
+
+            <div class="call-info" id="callInfo" style="display: none;">
+                <div>Calling: <span id="callingNumber"></span></div>
+                <div>Status: <span id="callStatus"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Redirect Confirmation Modal -->
+    <div id="redirectModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>🔗 Redirect to Ethereum Vaults</h3>
+            </div>
+            <div class="modal-body">
+                <p>You are being redirected to <strong>Ethereum Vaults</strong></p>
+                <p>Do you want to proceed?</p>
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn secondary" id="stayBtn">Stay Here</button>
+                <button class="modal-btn primary" id="proceedBtn">Proceed</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
